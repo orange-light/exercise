@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circle_stage</title>
+    <style>
+        body {
+            height: 2000px;
+            background-color: #313131;
+        }
+
+        canvas {
+            position: fixed;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script src="https://unpkg.com/@rive-app/canvas@2.17.3"></script>
+    <script>
+        const r = new rive.Rive({
+            src: "rive-circle.riv",
+            canvas: document.getElementById("canvas"),
+            autoplay: true,
+            stateMachines: "circle_stage",
+            onLoad: () => {
+                r.resizeDrawingSurfaceToCanvas();
+                stateMachineLoadInput = r.stateMachineInputs("circle_stage")[0];
+                stateMachineLoadInput.value = 0;
+                console.log("stateMachineLoadInput:", stateMachineLoadInput);
+            },
+        });
+        const body = document.querySelector("body");
+        const bodyParent = body.parentNode;
+        const pageLength = bodyParent.scrollHeight;
+        document.onscroll = () => {
+            const scrollOffset = bodyParent.scrollTop;
+            const scrollPctValue = (100 * scrollOffset) / (pageLength - bodyParent.clientHeight);
+            stateMachineLoadInput.value = scrollPctValue;
+        }
+    </script>
+</body>
+
+</html>
