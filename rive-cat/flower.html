@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        canvas {
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <h1>點擊滑鼠澆花</h1>
+    <script src="https://unpkg.com/@rive-app/canvas@2.17.3"></script>
+    <script>
+        const r = new rive.Rive({
+            src: "rive-flower.riv",
+            canvas: document.getElementById("canvas"),
+            autoplay: true,
+            stateMachines: "ani_flower_vine",
+            onLoad: () => {
+                r.resizeDrawingSurfaceToCanvas();
+                //指定實體-第二個input
+                stateMachineLoadInput = r.stateMachineInputs("ani_flower_vine")[0];
+                //rive預設功能，取input值
+                stateMachineLoadInput.value = 0;
+            },
+        });
+        const canvas = document.getElementById("canvas");
+        let saveTime = 0;
+        let startTime;
+        let intervalId;
+
+        canvas.addEventListener('mousedown', function () {
+            startTime = new Date().getTime();
+            // 每100毫秒更新一次saveTime
+            intervalId = setInterval(function () {
+                const currentTime = new Date().getTime();
+                const duration = currentTime - startTime;
+                saveTime += duration;
+                // console.log("Current press duration:", duration);
+                stateMachineLoadInput.value = saveTime / 1000;
+                // console.log("saveTime",saveTime);
+                
+            }, 0);
+            if (saveTime >= 100000) {
+                saveTime = 0;
+                stateMachineLoadInput.value = 0;
+            }
+        });
+
+        canvas.addEventListener('mouseup', function () {
+            clearInterval(intervalId); // 停止更新
+        });
+
+    </script>
+</body>
+
+</html>
