@@ -40,27 +40,35 @@
         let startTime;
         let intervalId;
 
-        canvas.addEventListener('mousedown', function () {
-            startTime = new Date().getTime();
-            // 每100毫秒更新一次saveTime
-            intervalId = setInterval(function () {
-                const currentTime = new Date().getTime();
-                const duration = currentTime - startTime;
-                saveTime += duration;
-                // console.log("Current press duration:", duration);
-                stateMachineLoadInput.value = saveTime / 1000;
-                // console.log("saveTime",saveTime);
-                
-            }, 0);
+        // 更新saveTime的函式
+        function updateSaveTime() {
+            const currentTime = new Date().getTime();
+            const duration = currentTime - startTime;
+            saveTime += duration;
+            stateMachineLoadInput.value = saveTime / 1000;
             if (saveTime >= 100000) {
                 saveTime = 0;
                 stateMachineLoadInput.value = 0;
             }
-        });
+        }
 
-        canvas.addEventListener('mouseup', function () {
+        function handleStart() {
+            startTime = new Date().getTime();
+            // 每0毫秒更新一次saveTime
+            intervalId = setInterval(updateSaveTime, 0);
+        }
+
+        function handleEnd() {
             clearInterval(intervalId); // 停止更新
-        });
+        }
+
+        // 桌面事件
+        canvas.addEventListener('mousedown', handleStart);
+        canvas.addEventListener('mouseup', handleEnd);
+
+        // 手機事件
+        canvas.addEventListener('touchstart', handleStart);
+        canvas.addEventListener('touchend', handleEnd);
 
     </script>
 </body>
