@@ -46,14 +46,18 @@
             const duration = currentTime - startTime;
             saveTime += duration;
             stateMachineLoadInput.value = saveTime / 1000;
-            if (saveTime >= 100000) {
-                saveTime = 0;
-                stateMachineLoadInput.value = 0;
-            }
+            // if (saveTime >= 100000) {
+            //     saveTime = 0;
+            //     stateMachineLoadInput.value = 0;
+            // }
         }
 
         function handleStart() {
             startTime = new Date().getTime();
+            if(saveTime >= 100000){
+                saveTime = 0;
+                stateMachineLoadInput.value = 0;
+            }
             // 每0毫秒更新一次saveTime
             intervalId = setInterval(updateSaveTime, 0);
         }
