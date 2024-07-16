@@ -15,6 +15,8 @@
             position: fixed;
             transform: translateX(-50%);
             left: 50%;
+            width: 100%;
+            max-width: 500px;
         }
     </style>
 </head>
@@ -30,8 +32,12 @@
             stateMachines: "circle_stage",
             onLoad: () => {
                 r.resizeDrawingSurfaceToCanvas();
+                //指定實體
                 stateMachineLoadInput = r.stateMachineInputs("circle_stage")[0];
+                //rive預設功能，取input值
                 stateMachineLoadInput.value = 0;
+                console.log("r.stateMachineInputs('circle_stage'):",r.stateMachineInputs("circle_stage"));
+                console.log("r.stateMachineInputs:",r.stateMachineInputs);
                 console.log("stateMachineLoadInput:", stateMachineLoadInput);
             },
         });
