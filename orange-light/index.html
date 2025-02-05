@@ -62,19 +62,36 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
                 <p>設計科系出身</p>
                 <p>一路從平面設計轉向數位廣告視覺，目前正在前端這條路上重新開拓疆野。</p>
                 <style>
-                  .fb-share-button span{
+                  .fb-share-button span {
                     vertical-align: baseline !important;
                   }
-                  .line-it-button{
+
+                  .line-it-button {
                     margin-right: 0.75rem;
                   }
                 </style>
-                <div class="h4 mt-3 d-flex align-items-center">
+                <div class="h4 mt-3">
                   <a href="mailto:wolrieo@gmail.com" data-toggle="tooltip" data-placement="top" title="Email me"><i
                       class="fas fa-envelope mx-3"></i></a>
                   <a href="https://hackmd.io/@OrangeLight" data-toggle="tooltip" data-placement="top"
                     title="my HackMD"><i class="fas fa-file-alt mx-3"></i></a>
-                    <!-- line share -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="text-center">社群分享測試</h2>
+              <hr>
+            </div>
+            <div class="col-12">
+              <h3 class="text-center">LINE & FB官方公版分享按鈕</h3>
+              <div class="d-flex d-flex align-items-center justify-content-center">
+                  <!-- line share -->
                   <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL"
                     data-url="https://orange-light.github.io/exercise/orange-light/" data-color="default"
                     data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
@@ -93,11 +110,40 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
                   <div class="fb-share-button" data-href="https://orange-light.github.io/exercise/orange-light/"
                     data-layout="button">
                   </div>
+              </div>
+
+            </div>
+            <div class="col-12">
+              <h3 class="text-center">[LINE官方API]分享到LINE+固定文案</h3>
+
+              <div class="container">
+                <style>
+                  #lineCustomShare_ID {
+                    background-color: #00b900;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                  }
+                </style>
+                <div class="d-flex flex-wrap justify-content-center">
+                  <button type="button" id="lineCustomShare_ID" class="line-customShare"
+                    onclick="lineCustomShare()">分享到LINE</button>
+                  <p class="w-100 text-center mt-2">不過只有電腦版有用，手機板沒有固定訊息</p>
                 </div>
+                <script>
+                  function lineCustomShare() {
+                    const shareText = encodeURIComponent("這是我的固定分享文案");
+                    const shareUrl = encodeURIComponent("https://orange-light.github.io/exercise/orange-light/");
+      
+                    const lineShareUrl = `https://social-plugins.line.me/lineit/share?text=${shareText}&url=${shareUrl}`;
+      
+                    window.open(lineShareUrl, "_blank");
+                  }
+      
+                </script>
               </div>
             </div>
           </div>
-        </div>
       </section>
       <section class="secB" id="skill">
         <div class="container">
