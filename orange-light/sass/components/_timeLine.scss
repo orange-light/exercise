@@ -1,0 +1,117 @@
+.c-timeLine {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        border-left: 1px solid #333;
+        transform: translateX(0%);
+        left: 30px;
+
+        @include min-md {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 30px;
+        border-left: 1px dashed #333;
+        transform: translateX(0);
+        left: 30px;
+        bottom: -30px;
+
+        @include min-md {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    }
+
+    &-card {
+        position: relative;
+        padding-left: 60px;
+
+        @include min-md {
+            padding-left: 1rem;
+        }
+
+        &:nth-child(2n+1) {
+            &::before {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background-color: #333;
+                border-radius: 100%;
+                left: 27px;
+
+                @include min-md {
+                    left: unset;
+                    right: -3px;
+                }
+            }
+
+            ul>li {
+                position: relative;
+                padding-left: 1.5rem;
+                @include min-md{
+                    padding-left: 0;
+                    padding-right: 1.5rem;
+                }
+                &::before {
+                    content: "";
+                    width: 3px;
+                    height: 3px;
+                    background-color: $primary;
+                    border-radius: 100%;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    top: 50%;
+                    left: 0;
+                    @include min-md{
+                        left: unset;
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2n) {
+            &::before {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background-color: #333;
+                border-radius: 100%;
+                left: 27px;
+
+                @include min-md {
+                    left: -3px;
+                }
+            }
+
+            ul>li {
+                position: relative;
+                padding-left: 1.5rem;
+
+                &::before {
+                    content: "";
+                    width: 3px;
+                    height: 3px;
+                    background-color: $primary;
+                    border-radius: 100%;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    top: 50%;
+                    left: 0;
+                }
+            }
+        }
+    }
+}

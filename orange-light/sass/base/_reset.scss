@@ -1,0 +1,21 @@
+//針對整個專案的基礎html標籤，做客制化設定
+body {
+    color: #333;
+}
+main{
+    overflow: hidden;
+}
+section[class*="sec"] {
+    padding: 30px 0;
+}
+a {
+    color: #333;
+    transition: color .3s;
+}
+
+a:hover {
+    color: $primary;
+}
+footer {
+    padding: 30px 0;
+}
