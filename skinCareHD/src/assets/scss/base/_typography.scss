@@ -1,0 +1,65 @@
+// 英文字體
+// @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+// .bebas-neue-regular {
+//     font-family: "Bebas Neue", sans-serif;
+//     font-weight: 400;
+//     font-style: normal;
+// }
+// html {
+//     font-family: "Bebas Neue", "Noto Sans TC", "微軟正黑體", Microsoft JhengHei, PingFang T, Arial, sans-serif;
+// }
+
+@mixin fontEnglish($weight) {
+    font-family: Bebas Neue;
+
+    @if ($weight==100 or $weight==200 or $weight==300 or $weight==light) {
+        src: url('/assets/fonts/Bebas Neue Pro Light.otf')format('OpenType');
+    }
+
+    @else if ($weight==400 or $weight==500 or $weight==600 or $weight==normal) {
+        src: url('/assets/fonts/Bebas Neue Pro Regular.otf')format('OpenType');
+    }
+
+    @else if ($weight==600 or $weight==700) {
+        src: url('/assets/fonts/Bebas Neue Pro Bold.otf')format('OpenType');
+    }
+
+    @else if ($weight==800 or $weight==900 or $weight==bold or $weight==bold) {
+        src: url('/assets/fonts/Bebas Neue Pro Book.otf')format('OpenType');
+    }
+
+    font-weight: $weight;
+    unicode-range: U+00-024F;
+    font-display: swap;
+}
+
+@font-face {
+    @include fontEnglish(light)
+}
+
+
+@font-face {
+    @include fontEnglish(normal)
+}
+
+
+@font-face {
+    @include fontEnglish(bold)
+}
+
+
+@for $i from 1 through 9 {
+    @font-face {
+        @include fontEnglish($i*100)
+    }
+}
+
+
+
+@font-face {
+    font-family: Bebas Neue;
+    src: local("Noto Sans TC"), local("微軟正黑體"), local("Microsoft JhengHei");
+    unicode-range: U+4E00-9FFF;
+    font-display: swap;
+}

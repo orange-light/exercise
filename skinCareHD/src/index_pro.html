@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/fla_logo.png" />
+  <!-- seo -->
+  <title>網站標題</title>
+  <meta name="description" content="網站描述">
+  <link rel="canonical" href="上線後的正式網址" />
+  <!-- og:Facebook、Plurk、LINE -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="網站標題" />
+  <meta property="og:description" content="網站描述" />
+  <meta property="og:url" content="上線後的正式網址" />
+  <meta property="og:site_name" content="網站名稱" />
+  <meta property="og:image" content="網站縮圖" />
+  <!-- og:Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="網站標題" />
+  <meta name="twitter:description" content="網站描述" />
+  <meta name="twitter:image" content="網站縮圖" />
+  <!-- third party CSS -->
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" href="/assets/scss/main.scss"> -->
+  <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+  <script>
+    // VConsole will be exported to `window.VConsole` by default.
+    var vConsole = new window.VConsole();
+  </script>
+</head>
+<!-- JSFiddle用的ＡＰＩ -->
+<!-- https://jsfiddle.net/a7389dgk/ -->
+<body>
+  <script>
+    (function (d, k) {
+      var s = d.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://plugins-media.perfectcorp.com/v1.24/sdk.js?apiKey=' + k;
+      var x = d.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    })(document, '7qRetIsvlCiCirnn4I0A');
+  </script>
+  <button onclick="YMK.openSkincare()">Open Skincare</button>
+  <button onclick="YMK.close()">Close</button>
+  <div id="YMK-module"></div>
+  <div id="result">
+    <!-- third party JS -->
+    <!-- js -->
+    <!-- <script type="module" src="/assets/js/main.js"></script> -->
+    <script>
+      window.ymkAsyncInit = () => {
+        YMK.init();
+      }
+    </script>
+    
+
+</body>
+
+</html>

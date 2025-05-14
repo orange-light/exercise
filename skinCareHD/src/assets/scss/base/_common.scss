@@ -1,0 +1,32 @@
+html,
+body {
+    font-family: Bebas Neue, "Noto Sans TC", "微軟正黑體", Microsoft JhengHei, PingFang T, Arial, sans-serif;
+    @media (min-width: 768px) {
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+}
+main{
+    overflow-y: scroll;
+    padding-top: 85px;
+    @media (min-width: 768px) {
+        padding-top: 0;
+    }
+}
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.acc-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

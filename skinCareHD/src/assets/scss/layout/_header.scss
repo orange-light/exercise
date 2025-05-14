@@ -1,0 +1,257 @@
+.l-header {
+    background-color: $d-black;
+    color: #fff;
+    font-weight: normal;
+    position: fixed;
+    z-index: 1001;
+    width: 100%;
+    top: 0;
+
+    @include min-md {
+        position: inherit;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        width: 80px;
+        max-width: 80px;
+        min-height: 100%;
+    }
+
+    &-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        background-color: $d-black;
+        height: 85px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1001;
+
+        @include min-md {
+            flex-direction: column;
+            justify-content: start;
+            height: 100%;
+        }
+    }
+
+    &-logo {
+        @include min-md {
+            margin-bottom: 13rem;
+        }
+
+        img {
+            width: 44px;
+            height: auto;
+        }
+    }
+
+    // 選單外殼
+    &-menu {
+        background-color: $d-black;
+        position: absolute;
+        top: -1000px;
+        width: 100%;
+        transition: top 0.3s ease-in;
+
+        // z-index: 1000;
+
+        @include min-md {
+            position: inherit;
+            width: auto;
+            height: 100%;
+        }
+
+
+        &.js-menuOpend {
+            top: 85px;
+
+            .l-header-content {
+                left: 80px;
+            }
+        }
+    }
+
+    // 選單內容
+    &-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $d-black;
+        height: 100%;
+        width: 100%;
+        min-width: 130px;
+        top: 0;
+        transition: left 0.3s ease-in-out;
+
+        @include min-md {
+            position: absolute;
+            width: 38%;
+            left: -720px;
+            max-width: 720px;
+            // z-index: 1001;
+        }
+
+        h2 {
+            font-family: Bebas Neue;
+            font-weight: 400;
+            font-size: pxToRem(24);
+            margin: 1rem;
+
+            @include min-md {
+                margin: 1rem 0;
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+            padding-inline-start: 0;
+            display: inline-block;
+
+            li {
+                margin-bottom: 2rem;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                transition: opacity 0.3s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                opacity: 0.5;
+
+                &:hover,
+                &.js-active {
+                    opacity: 1;
+                }
+
+                &:hover {
+                    span:nth-child(2) {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                span {
+                    display: inline-block;
+
+                    &:nth-child(1) {
+                        font-weight: 300;
+                    }
+
+                    &:nth-child(2) {
+                        font-family: Bebas Neue;
+                        font-weight: 400;
+                        font-size: pxToRem(36);
+                        position: relative;
+                        // align-self: baseline;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            height: 1px;
+                            width: 0%;
+                            background-color: #fff;
+                            bottom: 0;
+                            transition: width 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-txt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    // 社群icon
+
+    &-social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $d-black;
+        position: relative;
+        z-index: 1001;
+        height: 100%;
+
+        @include min-md {
+            flex-direction: column;
+            justify-content: start;
+        }
+
+        &-item {
+            opacity: 0.5;
+            transition: opacity 0.3s ease-in-out;
+            margin: 0.5rem;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            img {
+                width: 32px;
+
+                @include min-md {
+                    width: 22px;
+                }
+            }
+        }
+    }
+
+    // 版權聲明
+    &-copyright {
+        text-align: center;
+
+        @include min-md {
+            display: none;
+        }
+
+        p {
+            opacity: 0.5;
+            font-size: pxToRem(24);
+        }
+
+        span {
+            &:nth-child(2) {
+                font-family: Bebas Neue;
+            }
+        }
+    }
+}
+
+body {
+    @include min-md {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+html {
+    &::before {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 2;
+    }
+
+    &.js-menuOpend,
+    &.js-modalOpend {
+        overflow: hidden;
+
+        &::before {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+// 顏色設定===============================================================
+
+$d-black:#000000;
+$d-gray:#999999;
+
+$d-primary:#01a2b1;
+$d-secondary:#e62d88;
+$d-thrird:#083388;
+
+$d-primary-100:color.scale($d-primary, $lightness: 20%);
+$d-primary-200:color.scale($d-primary, $lightness: 15%);
+$d-primary-300:color.scale($d-primary, $lightness: 10%);
+$d-primary-400:color.scale($d-primary, $lightness: 5%);
+$d-primary-500:$d-primary;
+$d-primary-600:color.scale($d-primary, $lightness: -5%);
+$d-primary-700:color.scale($d-primary, $lightness: -10%);
+$d-primary-800:color.scale($d-primary, $lightness: -15%);
+$d-primary-900:color.scale($d-primary, $lightness: -20%);
+
+// 尺寸設定===============================================================
+$pc-width: 1920px;
+$pc-height: 725px;
+
+$mb-width: 960px;
+$mb-height: 1272px;

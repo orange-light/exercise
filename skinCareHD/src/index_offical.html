@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/fla_logo.png" />
+    <!-- seo -->
+    <title>網站標題</title>
+    <meta name="description" content="網站描述" />
+    <link rel="canonical" href="上線後的正式網址" />
+    <!-- og:Facebook、Plurk、LINE -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="網站標題" />
+    <meta property="og:description" content="網站描述" />
+    <meta property="og:url" content="上線後的正式網址" />
+    <meta property="og:site_name" content="網站名稱" />
+    <meta property="og:image" content="網站縮圖" />
+    <!-- og:Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="網站標題" />
+    <meta name="twitter:description" content="網站描述" />
+    <meta name="twitter:image" content="網站縮圖" />
+    <!-- third party CSS -->
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="/assets/scss/main.scss"> -->
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+      // VConsole will be exported to `window.VConsole` by default.
+      var vConsole = new window.VConsole();
+    </script>
+  </head>
+  <!-- 官方測試站用的ＡＰＩ-->
+  <!-- https://www.perfectcorp.com/business/showcase/skincare/live-diagnostics -->
+  <body>
+    <script>
+      (function (d, k) {
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src =
+          "https://plugins-media.makeupar.com/v1.75-demostore-live-skincare/sdk.js?apiKey=" +
+          k;
+        var x = d.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })(document, "7qRetIsvlCiCirnn4I0A");
+    </script>
+    <!-- <button onclick="YMK.openSkincare('live')">Open Skincare</button>
+    <button onclick="YMK.close()">Close</button> -->
+    <div id="YMK-module"></div>
+    <div id="result"></div>
+    <!-- third party JS -->
+    <!-- js -->
+    <!-- <script type="module" src="/assets/js/main.js"></script> -->
+    <script>
+      //       window.ymkAsyncInit = function() {
+      //   YMK.init();
+      //   // 先確認設備／網域是否支援 Skincare
+      //   YMK.isFeatureSupportedByDeviceEnv("skincare")
+      //     .then(res => {
+      //       if (res.result === "support") {
+      //         YMK.openSkincare("live");
+      //       } else {
+      //         console.warn("此設備或網域不支援 Live Skincare 模式：", res);
+      //         // 可以退而求其次呼叫 capture 模式
+      //         YMK.openSkincare("capture");
+      //       }
+      //     })
+      //     .catch(err => {
+      //       console.error("Skincare 服務不可用，請稍後再試：", err);
+      //     });
+      // };
+      // 先確保在 YMK 初始化後才綁定事件
+      window.ymkAsyncInit = function () {
+        // 啟動 SDK
+        YMK.init();
+        YMK.openSkincare("live");
+        console.log("已啟動");
+        // 綁定「分析完成」事件
+        YMK.addEventListener("skinAnalysisUpdated", function (data) {
+          console.log("分析完成");
+          // 先把整包 data 都印出來，看一下正確的欄位長什麼樣子
+          console.log("=== 完整分析結果 ===");
+          console.log(data);
+
+          // 假設文件上欄位就是這些名稱，就直接這樣取
+          console.log("膚齡 (skinAge):", data.skinAge);
+          console.log("膚質分數 (skinScore):", data.skinScore);
+          console.log("油脂 (oiliness):", data.oiliness);
+          console.log("斑點 (spots):", data.spots);
+          console.log("皺紋 (wrinkles):", data.wrinkles);
+
+          // 如果欄位在更深一層（例如 data.results.skinAge），
+          // 再改成 data.results.skinAge 即可
+        });
+      };
+    </script>
+  </body>
+</html>

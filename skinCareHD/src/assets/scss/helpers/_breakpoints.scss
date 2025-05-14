@@ -1,0 +1,75 @@
+//RWD mixin 設定
+//Boostrap的邏輯是走min-width的
+@mixin min-xl {
+    @media (min-width:1200px) {
+        @content
+    }
+};
+
+@mixin min-lg {
+    @media (min-width:992px) {
+        @content
+    }
+};
+
+@mixin min-md {
+    @media (min-width: 768px) {
+        @content
+    }
+};
+
+@mixin min-sm {
+    @media (min-width: 576px) {
+        @content
+    }
+};
+
+//但是只想要手機版吃到設定，不想寫多寫電腦版的時候可以偷用max-width
+//要跟min-width錯開所以數值要少1
+@mixin max-xl {
+    @media (max-width:1199px) {
+        @content
+    }
+};
+
+@mixin max-lg {
+    @media (max-width:991px) {
+        @content
+    }
+};
+
+@mixin max-md {
+    @media (max-width: 767px) {
+        @content
+    }
+};
+
+@mixin max-sm {
+    @media (max-width: 575px) {
+        @content
+    }
+};
+
+//針對小螢幕手機的修正
+@mixin max-380 {
+    @media (max-width: 380px) {
+        @content
+    }
+};
+
+@mixin max-420 {
+    @media (max-width: 420px) {
+        @content
+    }
+};
+
+// ----- PC列印樣式修正
+@mixin screenmin($res-min) {
+    @media screen and (min-width: $res-min) and (all) {
+        @content;
+    }
+
+    @media print {
+        @content;
+    }
+}

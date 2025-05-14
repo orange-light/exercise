@@ -1,0 +1,7 @@
+@function pxToRem($px) {
+    @return calc($px / 16) + rem;
+}
+
+@function pxToVw($media, $px) {
+    @return calc($px / $media) * 100vw;
+}

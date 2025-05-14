@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/fla_logo.png" />
+    <!-- seo -->
+    <title>網站標題</title>
+    <meta name="description" content="網站描述" />
+    <link rel="canonical" href="上線後的正式網址" />
+    <!-- og:Facebook、Plurk、LINE -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="網站標題" />
+    <meta property="og:description" content="網站描述" />
+    <meta property="og:url" content="上線後的正式網址" />
+    <meta property="og:site_name" content="網站名稱" />
+    <meta property="og:image" content="網站縮圖" />
+    <!-- og:Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="網站標題" />
+    <meta name="twitter:description" content="網站描述" />
+    <meta name="twitter:image" content="網站縮圖" />
+    <!-- third party CSS -->
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="/assets/scss/main.scss"> -->
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script>
+      // VConsole will be exported to `window.VConsole` by default.
+      var vConsole = new window.VConsole();
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      /* 原始設計尺寸：假設模組原本要 360×480 */
+      #ykm-wrapper {
+        transform-origin: top left; /* 從左上角開始縮放 */
+      }
+      /* 外層容器：寬度撐滿父元素 */
+      #ykm-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      (function (d, k) {
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src =
+          "https://plugins-media.makeupar.com/c52718-dev/sdk.js?apiKey=" + k;
+        var x = d.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })(document, "7qRetIsvlCiCirnn4I0A");
+    </script>
+    <!-- <button onclick="YMK.openSkincare('live')">Open Skincare</button>
+    <button onclick="YMK.close()">Close</button> -->
+    <div id="ykm-container">
+      <div id="ykm-wrapper">
+        <!-- 你原本放 #YMK-module、button、canvas…等內容都放這裡 -->
+        <div id="YMK-module"></div>
+        ...
+      </div>
+    </div>
+    <div id="result"></div>
+    <!-- third party JS -->
+    <!-- js -->
+    <!-- <script type="module" src="/assets/js/main.js"></script> -->
+    <script>
+      window.ymkAsyncInit = function () {
+        // 啟動 SDK
+        YMK.init({
+          language: "cht", //繁體中文
+          hideButtonsOnResultPage: true,
+        });
+        YMK.openSkincare();
+        console.log("已啟動");
+        // 綁定「分析完成」事件
+        YMK.addEventListener("skinAnalysisUpdated", function (data) {
+          console.log("分析完成");
+          // 先把整包 data 都印出來，看一下正確的欄位長什麼樣子
+          console.log("=== 完整分析結果 ===");
+          console.log(data);
+
+          // 假設文件上欄位就是這些名稱，就直接這樣取
+          console.log("膚齡 (skinAge):", data.skinAge);
+
+          // 如果欄位在更深一層（例如 data.results.skinAge），
+          // 再改成 data.results.skinAge 即可
+        });
+      };
+    </script>
+    <script>
+      (function () {
+        const container = document.getElementById("ykm-container");
+        const wrapper = document.getElementById("ykm-wrapper");
+        const BASE_W = 360,
+          BASE_H = 480; // 跟上面 CSS 一致
+
+        function resizeWrapper() {
+          // 以寬度為基準，也可以用高度做檢測取最小值
+          const scale = container.clientWidth / BASE_W;
+          wrapper.style.transform = `scale(${scale})`;
+          // 同步調整 wrapper 外層的高度，避免下方空白
+          // container.style.height = `${BASE_H * scale}px`;
+        }
+
+        if (window.innerWidth >= 500) {
+          // 初次跑
+          resizeWrapper();
+        }
+        // 使用者 resize 時，更新 scale
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 500) {
+            resizeWrapper();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
