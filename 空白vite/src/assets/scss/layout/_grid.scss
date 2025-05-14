@@ -1,0 +1,14 @@
+.l-grid{
+    &-container{
+        max-width: 1120px;
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        @include min-md {
+            max-width: 780px;
+        }
+        @include min-xl {
+            max-width: 1120px;
+        }
+    }
+}
