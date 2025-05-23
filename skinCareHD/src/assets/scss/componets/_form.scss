@@ -1,0 +1,62 @@
+.c-form {
+    label {
+        display: flex;
+        align-items: center;
+        font-size: pxToRem(18);
+        color: $d-black;
+        margin-bottom: 1rem;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 3px;
+            background-color: $d-black;
+            margin-right: 1rem;
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        border: 0;
+        background-color: #e7e7e7;
+        font-size: pxToRem(30);
+        font-family: Bebas Neue;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: inherit;
+            color: $d-gray;
+        }
+
+        // 移除下拉選單預設箭頭
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    select {
+        background-image: url('/assets/images/icon/icon_arrow--gray.png');
+        background-size: 23px 13px;
+        background-repeat: no-repeat;
+        background-repeat: no-repeat;
+        background-position: center right 1.5rem;
+
+        &:invalid {
+            color: $d-gray;
+        }
+    }
+
+    input {
+        height: 80px;
+    }
+
+    &-group {
+        +.c-form-group {
+            margin-top: 2rem;
+        }
+    }
+}

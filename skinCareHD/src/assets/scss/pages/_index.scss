@@ -1,0 +1,86 @@
+.p-index {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+        }
+    }
+
+    &-ymk {
+        &-wrapper {
+            position: relative;
+            transform-origin: top left;
+            /* 從左上角開始縮放 */
+            width: fit-content;
+        }
+
+
+        &-frames {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+
+        #YMK-module {
+            width: fit-content;
+        }
+    }
+
+    &-app {
+        width: 100%;
+    }
+
+    &-content {
+        width: 100%;
+    }
+
+    &-result {
+        &-items {
+            text-align: center;
+            width: calc((100%/3) - 1rem);
+        }
+
+        &-chart {
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            transform: rotate(-90deg);
+            /* 讓起點從 12 點鐘方向開始 */
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 15;
+        }
+
+        .circle-fg {
+            fill: none;
+            stroke: #3b82f6;
+            stroke-width: 15;
+            stroke-linecap: round;
+            stroke-dasharray: 502.6548245743669;
+            stroke-dashoffset: 502.6548245743669;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    }
+
+    &-frames {
+        font-size: pxToRem(24);
+    }
+}

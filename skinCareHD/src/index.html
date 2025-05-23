@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/fla_logo.png" />
+  <!-- seo -->
+  <title>Skincare Module測試</title>
+  <meta name="description" content="網站描述" />
+  <link rel="canonical" href="上線後的正式網址" />
+  <!-- og:Facebook、Plurk、LINE -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="網站標題" />
+  <meta property="og:description" content="網站描述" />
+  <meta property="og:url" content="上線後的正式網址" />
+  <meta property="og:site_name" content="網站名稱" />
+  <meta property="og:image" content="網站縮圖" />
+  <!-- og:Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="網站標題" />
+  <meta name="twitter:description" content="網站描述" />
+  <meta name="twitter:image" content="網站縮圖" />
+  <!-- third party CSS -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/scss/main.scss">
+  <script>
+    // skinCareHD SRC
+    (function (d, k) {
+      var s = d.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src =
+        "https://plugins-media.makeupar.com/c1024886-dev/sdk.js?apiKey=" + k;
+      var x = d.getElementsByTagName("script")[0];
+      x.parentNode.insertBefore(s, x);
+    })(document, "Z08UikZjJl0YhpMwg8MdQ");
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+  <script>
+    // VConsole will be exported to `window.VConsole` by default.
+    var vConsole = new window.VConsole();
+  </script> -->
+</head>
+
+<body>
+  <div class="p-index-container">
+    <div class="p-index-app">
+      <div class="p-index-ymk-wrapper">
+        <div class="p-index-ymk-frames">
+          <img src="/assets/images/frames/FrameN.png" alt="框架預覽" id="frame-preview">
+        </div>
+        <!-- 官方容器 -->
+        <div id="YMK-module"></div>
+      </div>
+    </div>
+    <div class="p-index-content">
+      <div class="p-index-result">
+        <h2>分析結果</h2>
+        <div class="flex" style="justify-content: center;">
+          <h3>您的肌膚年齡:<span id="skinAge">0</span>歲</h3>
+          <h3>您的肌膚健康程度:<span id="skinHealth">0</span>%</h3>
+        </div>
+        <div class="row">
+          <div class="p-index-result-items" id="acne">
+            <h3>痘痘/粉刺(acne)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+          <div class="p-index-result-items" id="ageSpots">
+            <h3>色斑/色素沉澱(ageSpots)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+          <div class="p-index-result-items" id="moisture">
+            <h3>皮膚保濕度(moisture)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+          <div class="p-index-result-items" id="oiliness">
+            <h3>皮脂分泌量(oiliness)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+          <div class="p-index-result-items" id="radiance">
+            <h3>臉部光澤度/透亮度(radiance)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+          <div class="p-index-result-items" id="wrinkles">
+            <h3>全臉皺紋整體分數(wrinkles)</h3>
+            <div class="p-index-result-chart">
+              <svg viewBox="0 0 200 200">
+                <!-- 底色圓環 -->
+                <circle class="circle-bg" cx="100" cy="100" r="80" />
+                <!-- 進度圓環 -->
+                <circle class="circle-fg" cx="100" cy="100" r="80" />
+              </svg>
+              <div class="label">0%</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="p-index-frames">
+        <h2>挑選外框</h2>
+        <div class="row" style="justify-content: center;">
+          <div class="row">
+            <label for="frameN_ID">隱藏外框</label>
+            <input type="radio" name="frame-select" value="N" id="frameN_ID" checked>
+          </div>
+          <div class="row">
+            <label for="frameA_ID">花花草草</label>
+            <input type="radio" name="frame-select" value="A" id="frameA_ID">
+          </div>
+          <div class="row">
+            <label for="frameB_ID">魔鏡</label>
+            <input type="radio" name="frame-select" value="B" id="frameB_ID">
+          </div>
+          <div class="row">
+            <label for="frameC_ID">玫瑰與皇冠</label>
+            <input type="radio" name="frame-select" value="C" id="frameC_ID">
+          </div>
+        </div>
+      </div>
+      <div class="p-index-download">
+        <h2>下載圖片</h2>
+        <div class="row">
+          <button onclick="downloadSnapshotSkincareResult()">下載圖片(方法1)</button>
+          <button onclick="downloadSnapshot()">下載圖片(方法2)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- third party JS -->
+  <!-- js -->
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+
+</html>
