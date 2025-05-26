@@ -1,4 +1,5 @@
-import {setCircleProgress} from "./chart";
+import { setCircleProgress } from "./chart";
+import { chartJsInit } from "./chart.js";
 
 const options = {
   language: "cht", //繁體中文
@@ -42,6 +43,16 @@ function printResult() {
     const skinHealthEl = document.getElementById("skinHealth");
     skinAgeEl.textContent = skinData.skinAge;
     skinHealthEl.textContent = skinData.skinHealth;
+    window.ymkAnalysisData = [
+      skinData.acne,
+      skinData.ageSpots,
+      skinData.moisture,
+      skinData.oiliness,
+      skinData.radiance,
+      skinData.wrinkles,
+    ];
+    console.log(window.ymkAnalysisData);
+    chartJsInit(window.ymkAnalysisData);
   }
 }
 
