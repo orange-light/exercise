@@ -1,0 +1,86 @@
+.c-carousel {
+    &-item {
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+        float: left;
+        display: none !important;
+        margin-right: -100%;
+    }
+
+    &-arrow {
+        // border: 1px solid red;
+        position: absolute;
+        z-index: 1;
+        width: 48%;
+        min-width: 280px;
+        height: 56px;
+        translate: -50% 0;
+        left: 50%;
+        bottom: 111px;
+
+        @include min-lg {
+            translate: 0;
+            left: auto;
+            width: 350px;
+            height: 66px;
+            bottom: 113px;
+            right: 72px;
+        }
+
+        @include min-xl {
+            width: 500px;
+            height: 95px;
+            bottom: 180px;
+            right: 57px;
+        }
+
+        @media (min-width:1300px) {
+            right: 92px;
+
+        }
+
+        >* {
+            padding: 0;
+            width: 0;
+            height: 0;
+            cursor: pointer;
+            background-color: transparent;
+            border-width: 7.5px;
+            border-style: solid;
+            border-color: $d-textColor;
+            position: absolute;
+            translate: 0 -50%;
+            top: 50%;
+
+            @include min-lg {
+                border-width: 15px;
+            }
+
+            &:nth-child(1) {
+                left: 0;
+                border-color: transparent $d-textColor transparent transparent;
+            }
+
+            &:nth-child(2) {
+                right: 0;
+                border-color: transparent transparent transparent $d-textColor;
+            }
+        }
+    }
+
+    .js-prev {
+        transform: translateX(-100%);
+    }
+
+    .js-next {
+        transform: translateX(100%);
+    }
+
+    .js-show {
+        display: block !important;
+
+        @include min-lg {
+            display: grid !important;
+        }
+    }
+}

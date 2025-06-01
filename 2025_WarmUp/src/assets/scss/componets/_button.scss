@@ -1,0 +1,110 @@
+.c-button {
+    cursor: pointer;
+    border-radius: 100px;
+    line-height: 1;
+    letter-spacing: 0.075em;
+    padding-left: calc(0.075em * 2);
+    font-weight: 900;
+    transition: all 0.3s ease-in-out;
+
+    >* {
+        font-family: "Noto Sans TC", "微軟正黑體", Microsoft JhengHei, PingFang T, Arial, sans-serif;
+        cursor: pointer;
+        font-size: inherit;
+        font-weight: 900;
+        color: inherit;
+        margin-bottom: 0;
+        position: relative;
+        padding: 0.75em 1em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        >* {
+            display: block;
+            font-family: inherit;
+
+            +* {
+                margin-left: 0.5em;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        &:link,
+        &:visited,
+        &:hover,
+        &:active {
+            color: inherit;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        border: 0;
+
+    }
+
+    // 樣式
+    &--primary {
+        background-color: $d-primary;
+
+        &:hover {
+            background-color: $d-fourth;
+        }
+    }
+
+    &--lighter {
+        background-color: $d-primary;
+
+        &:hover {
+            background-color: color.scale($d-fourth, $lightness: 20%);
+        }
+    }
+
+    &--white {
+        background-color: #fff;
+
+        &:hover {
+            background-color: color.scale($d-fourth, $lightness: 20%);
+        }
+    }
+
+    &--arrow {
+        &--img {
+            position: relative;
+            top: 1px;
+            
+        }
+    }
+
+    &--facebook {
+        background-color: #6176e9;
+    }
+
+    &--line {
+        background-color: #81c161;
+    }
+
+    // 尺寸
+    &--lg {
+        @include samSize("width", 270);
+        @include samSize("font-size", 26);
+        .c-button--arrow--img {
+            @include samSize("width", 10);
+        }
+    }
+
+    &--xl {
+        @include samSize("width", 360);
+        @include samSize("font-size", 36);
+        .c-button--arrow--img {
+            @include samSize("width", 15);
+        }
+    }
+}

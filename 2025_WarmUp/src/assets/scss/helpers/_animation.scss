@@ -1,0 +1,32 @@
+@keyframes floatUpDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes driftLeftRight {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  25% {
+    translate: -20px 0;
+  }
+
+  75% {
+    translate: 20px 0;
+  }
+}
+
+.element {
+  animation: floatUpDown 3s ease-in-out infinite alternate,
+    driftLeftRight 4s ease-in-out infinite alternate;
+}

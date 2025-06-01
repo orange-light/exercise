@@ -1,0 +1,49 @@
+// 用在h1~h6上的標題設定
+.c-title {
+    text-align: center;
+
+    @include min-sm {
+        white-space: nowrap;
+    }
+
+    &--heavy {
+        font-weight: 900;
+    }
+
+    &--medium {
+        // font-weight: bold;
+    }
+
+    &--subtitle {}
+
+    &--mission {
+        font-size: pxToRem(20);
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: 0.5em;
+
+        @include min-lg {
+            font-size: pxToRem(44*0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(44);
+        }
+    }
+
+    &--inpage {
+        font-size: pxToRem(22);
+        font-weight: 900;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 0.75em;
+
+        @include min-lg {
+            font-size: pxToRem(32*0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(32);
+        }
+    }
+}

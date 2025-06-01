@@ -1,0 +1,262 @@
+// 卡片元素
+.c-card {
+    &-wrapper {
+        display: flex;
+        gap: 0.5rem;
+
+        @media (min-width: 360px) {
+            margin: 0 10%;
+        }
+
+        @include min-sm {
+            gap: 1rem;
+            margin: 0 10%;
+        }
+
+        @include min-lg {
+            margin: 0;
+        }
+
+    }
+
+    &-item {
+        border: $border-setting;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        @include min-lg {
+            border-radius: 25px 25px 0 0;
+        }
+    }
+
+    &-header {
+        padding: 0.5rem 1rem;
+        text-align: center;
+        border-bottom: $border-setting;
+
+        @include min-sm {
+            padding: 1rem;
+        }
+    }
+
+    &-body {
+        height: 100%;
+        padding: 0 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        @include min-lg {
+            padding: 0 4rem;
+        }
+
+        &-title {
+            font-size: pxToRem(16);
+            font-weight: 700;
+            line-height: 0.9;
+            margin: 1rem 0;
+
+            @include min-lg {
+                font-size: pxToRem(36*0.7);
+                margin: 1.5rem 0;
+            }
+
+            @include min-xl {
+                font-size: pxToRem(36);
+            }
+        }
+
+        &-subtitle {
+            font-size: pxToRem(16);
+            font-weight: 900;
+            line-height: 1;
+            margin: 1rem 0;
+
+            @include min-lg {
+                font-size: pxToRem(36*0.7);
+                margin: 1.5rem 0;
+            }
+
+            @include min-xl {
+                font-size: pxToRem(36);
+            }
+
+            small {
+                font-weight: 700;
+                font-size: 60%;
+                letter-spacing: 0.08em;
+            }
+        }
+
+        &-content_group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin: 0 5%;
+            height: 100%;
+
+            @include min-lg {
+                margin: 0;
+            }
+        }
+    }
+
+    &-footer {
+        padding: 1rem;
+
+        @include min-lg {
+            padding: 1.5rem;
+        }
+
+        .c-card-button_group {
+            margin: 0;
+        }
+    }
+
+    &-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: pxToRem(16);
+        line-height: 1.1;
+        letter-spacing: 0.15em;
+        margin: 0.5rem 0;
+
+        @include min-lg {
+            text-align: left;
+            font-size: pxToRem(28*0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(28);
+        }
+
+        input {
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            font-size: inherit;
+            color: $d-primary;
+            width: 2em;
+            height: auto;
+            text-align: center;
+            font-size: 120%;
+            font-weight: 900;
+        }
+    }
+
+    &-button_group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0.5rem 0;
+
+        @include min-sm {
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+    }
+
+
+    &--mission {
+        &.c-card-wrapper {
+            justify-content: center;
+            flex-direction: column;
+
+            @include min-lg {
+                flex-direction: row;
+                padding: 0 1.5rem;
+            }
+        }
+
+        .c-card-header {
+            background-color: $d-primary;
+
+            &-title {
+                font-size: pxToRem(12);
+                font-weight: 700;
+
+                @include min-lg {
+                    font-size: pxToRem(30*0.7);
+                }
+
+                @include min-xl {
+                    font-size: pxToRem(30);
+                }
+            }
+        }
+
+        .c-card-footer {
+            justify-content: center;
+        }
+    }
+
+    &--invite {
+        &.c-card-wrapper {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .c-card-item_group {
+            width: 45%;
+            max-width: 150px;
+
+            @include min-sm {
+                max-width: none;
+            }
+
+            @include min-lg {
+                width: calc(200px * 0.7);
+            }
+
+            @include min-xl {
+                width: 200px;
+            }
+        }
+
+        .c-card-item {
+            border-radius: 6px;
+
+            @include min-lg {
+                border-radius: 10px;
+            }
+        }
+
+        .c-card-header {
+            background-color: $d-primary;
+
+            &-title {
+                margin: 0;
+                font-size: pxToRem(16);
+                font-weight: 900;
+
+                @include min-lg {
+                    font-size: pxToRem(22*0.7);
+                }
+
+                @include min-xl {
+                    font-size: pxToRem(22);
+                }
+            }
+        }
+
+        .c-card-body {
+            padding: 0.5rem 1rem;
+
+            @include min-sm {
+                padding: 0.5rem 3rem;
+            }
+
+            @include min-lg {
+                padding: 0.5rem 1.5rem;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,65 @@
+.c-tab {
+    &-head {
+        font-size: pxToRem(14);
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1em;
+        gap: 2px;
+        border-bottom: $border-setting;
+        margin-top: 1rem;
+
+        @include min-lg {
+            font-size: pxToRem(24*0.7);
+            gap: 6px;
+        }
+
+        @include min-xl {
+            font-size: pxToRem(24);
+        }
+    }
+
+    &-tab {
+        background-color: $d-primary;
+        width: 100%;
+        font-size: inherit;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px 6px 0 0;
+        height: 24px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        @include min-lg {
+            border-radius: 15px 15px 0 0;
+            height: 50px;
+        }
+
+        &.js-active {
+            background-color: $d-primary;
+            color: #fff;
+        }
+        &:hover{
+            background-color: $d-thrird;
+        }
+    }
+
+    &-pane {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+
+        &.js-fadeIn {
+            display: block;
+        }
+
+        &.js-active {
+            display: block;
+            opacity: 1;
+        }
+    }
+}

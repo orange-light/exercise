@@ -1,0 +1,12 @@
+@mixin samSize($property, $size) {
+    #{$property}: pxToVw(960, $size * 1.5);
+
+    @include min-lg {
+        #{$property}: calc(#{$size}px * 0.7);
+    }
+
+    @include min-xl {
+        #{$property}: #{$size}px;
+    }
+
+}

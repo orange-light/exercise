@@ -1,0 +1,8 @@
+.c-deco {
+    &-bg {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: calc(100% - 1px);
+    }
+}

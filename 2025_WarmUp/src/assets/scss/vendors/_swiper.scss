@@ -1,0 +1,32 @@
+.swiper {
+    // padding-bottom: 20px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    top: 40%;
+    transition: opacity 0.3s ease-in-out;
+
+    @include samSize("width", 40);
+
+    &::after {
+        content: none;
+    }
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+
+.swiper-button-next {
+    right: 0px;
+}
+
+.swiper-button-prev {
+    left: 0px;
+}
+
+.swiper-slide {
+    padding: 0 6px;
+}

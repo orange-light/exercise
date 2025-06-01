@@ -1,0 +1,288 @@
+.c-modal {
+    color: $d-textColor;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+
+    opacity: 0;
+    // display: flex;
+    display: none;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    // overflow-y: scroll;
+
+    transition: all 0.3s ease-in-out;
+
+    * {
+        line-height: inherit;
+    }
+
+    &-card {
+        position: relative;
+        width: 80%;
+        min-width: 220px;
+        background-color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        padding: pxToVw(960, 40);
+        transform: translateY(80px);
+        transition: all 0.3s ease-in-out;
+
+        @include min-lg {
+            transform: translateY(100px);
+            width: 70%;
+            padding: 40px;
+        }
+
+
+        &-arrow {
+            cursor: pointer;
+            position: absolute;
+            width: pxToVw(960, 50);
+            top: 50%;
+            translate: 0 -50%;
+            transition: all 0.3s ease-in-out;
+
+            @include min-lg {
+                width: 50px;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+            &--r {
+                right: pxToVw(960, -75);
+
+                @include min-lg {
+                    right: -4rem;
+                }
+            }
+
+            &--l {
+                left: pxToVw(960, -75);
+
+                @include min-lg {
+                    left: -4rem;
+                }
+            }
+        }
+
+        &-btn {
+            cursor: pointer;
+            width: pxToVw(960, 50);
+            height: pxToVw(960, 50);
+            border-radius: 0 pxToVw(960, 10) 0 0;
+            border-width: pxToVw(960, 50);
+            border-style: solid;
+            border-color: $d-primary $d-primary transparent transparent;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            @include min-lg {
+                width: 50px;
+                height: 50px;
+                border-radius: 0 10px 0 0;
+                border-width: 50px;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+            img {
+                width: pxToVw(960, 30);
+                position: absolute;
+                top: pxToVw(960, -35);
+                right: pxToVw(960, -35);
+
+                @include min-lg {
+                    width: 30px;
+                    top: -35px;
+                    right: -35px;
+                }
+            }
+        }
+
+        &-header {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: pxToVw(960, 50);
+            width: fit-content;
+            margin: 0 auto;
+
+            @include min-lg {
+                gap: 50px;
+            }
+
+            &::before {
+                content: "";
+                height: 2px;
+                width: 100%;
+                background: linear-gradient(to left, $d-primary, $d-primary 10px, transparent 10px, transparent);
+                background-size: 20px 100%;
+                position: absolute;
+            }
+
+            img[src*="big"] {
+                width: pxToVw(960, 97);
+                display: none;
+
+                @include min-lg {
+                    width: 97px;
+                }
+            }
+
+            img[src*="small"] {
+                width: pxToVw(960, 53);
+
+                @include min-lg {
+                    width: 53px;
+                }
+            }
+
+            &-items {
+                position: relative;
+                z-index: 1;
+                cursor: pointer;
+                transition: scale 0.3s ease-in-out;
+
+                &:hover {
+                    scale: 1.1 1.1;
+                }
+
+                &.js-active {
+                    img[src*="big"] {
+                        display: block;
+                    }
+
+                    img[src*="small"] {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+
+        &-body {
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 80vh;
+
+            &-items {
+                display: none;
+
+                &.js-active {
+                    display: block;
+                }
+            }
+
+            &-txt {
+                font-weight: 500;
+                font-size: pxToVw(960, 24);
+                line-height: 1.5;
+                letter-spacing: 0.08em;
+                margin: 1em 0;
+
+                @include min-lg {
+                    font-size: pxToRem(24);
+                }
+            }
+
+            &-img {
+                max-width: 100%;
+                margin: 0 auto;
+
+                img[src*="pc"] {
+                    display: none;
+
+                    @include min-lg {
+                        display: block;
+                    }
+                }
+
+                img[src*="mb"] {
+                    display: block;
+
+                    @include min-lg {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &-title {
+        margin-top: 0;
+        font-size: pxToRem(18);
+
+        @include min-lg {
+            font-size: pxToRem(34 * 0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(34);
+        }
+    }
+
+    &-button_group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        >* {
+            font-size: pxToRem(16);
+
+            @include min-lg {
+                font-size: pxToRem(26 * 0.7);
+            }
+
+            @include min-xl {
+                font-size: pxToRem(26);
+            }
+        }
+
+        .c-button--arrow--img {
+            background-image: url('../images/btn-arrow.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 6px;
+            height: 10px;
+        }
+    }
+
+    &.js-fadeIn {
+        display: flex;
+        opacity: 0;
+
+    }
+
+    &.js-active {
+        display: flex;
+        opacity: 1;
+
+        .c-modal-card {
+            transform: translateY(0px);
+        }
+    }
+}
+
+body.c-modal-open {
+    overflow: hidden;
+    position: relative;
+
+    @include min-sm {
+        padding-right: 15px;
+    }
+}

@@ -1,0 +1,162 @@
+.c-table {
+    overflow: hidden;
+    margin: 0.5rem 0;
+    margin-left: -3em;
+
+    @include min-sm {
+        margin: 1rem 0;
+    }
+
+    @include min-lg {
+        margin: 1rem 0;
+    }
+
+    @include min-xl {
+        margin: 2rem 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: inherit;
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+
+        @include min-lg {
+            padding: 1rem;
+        }
+    }
+
+    &--qa {
+        border-radius: 10px;
+        border: $border-setting;
+
+        th,
+        td {
+            padding: 0.5rem;
+            border-right: $border-setting;
+
+            @include min-lg {
+                padding: 1rem;
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        thead {
+            background-color: $d-primary;
+            border-bottom: $border-setting;
+        }
+
+        tbody {
+            tr {
+                border-bottom: $border-setting;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+
+            th {
+                font-weight: normal;
+                text-align: left;
+            }
+
+            td {
+                text-align: center;
+            }
+        }
+    }
+
+    &--record {
+        margin: 0 auto;
+        max-width: 780px;
+        font-weight: 900;
+        font-size: pxToRem(12);
+
+        @include min-sm {
+            white-space: nowrap;
+        }
+
+        @include min-lg {
+            font-size: pxToRem(18*0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(18);
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 0.5rem;
+            min-height: 36px;
+            border-right: 1px solid $d-textColor;
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        thead {
+            background-color: $d-primary;
+            color: #fff;
+        }
+
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background-color: $d-primary;
+                }
+
+            }
+
+        }
+    }
+
+    &--count {
+        margin: 0 auto;
+        max-width: 780px;
+        font-weight: 900;
+        font-size: pxToRem(12);
+
+        @include min-sm {
+            white-space: nowrap;
+        }
+
+        @include min-lg {
+            font-size: pxToRem(18*0.7);
+        }
+
+        @include min-xl {
+            font-size: pxToRem(18);
+        }
+        th,td {
+            padding: 0.5em 0;
+            line-height: 1;
+        }
+
+        thead {
+            background-color: $d-primary;
+            @include min-sm {
+
+            }
+        }
+
+        tbody {
+            tr {
+
+                td:last-child {
+                    width: 10%;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

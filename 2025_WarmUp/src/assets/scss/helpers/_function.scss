@@ -1,0 +1,21 @@
+@function pxToRem($px) {
+    @return calc($px / 16) + rem;
+}
+
+@function pxToVw($media, $px) {
+    @return calc($px / $media) * 100vw;
+}
+
+@function pxToPer($media, $px) {
+    @return calc($px / $media) * 100%;
+}
+
+// px to vw
+@function fixVw($width, $val) {
+    @return 100vw * 1px / $width * $val;
+}
+
+// px to persent
+@function fixPer($width, $val) {
+    @return 100% * 1px / $width * $val;
+}
