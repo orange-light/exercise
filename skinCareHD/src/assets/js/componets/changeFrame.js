@@ -5,7 +5,7 @@ export function changeFrame() {
     radio.addEventListener("change", () => {
       if (radio.checked) {
         // 根據 value 動態改路徑
-        preview.src = `/assets/images/frames/Frame${radio.value}.png`;
+        preview.src = `./assets/images/frames/Frame${radio.value}.png`;
         preview.alt = `Frame ${radio.value} 預覽`;
       }
     });
