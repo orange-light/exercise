@@ -3,9 +3,11 @@
 $d-black:#000000;
 $d-gray:#999999;
 
-$d-primary:#01a2b1;
-$d-secondary:#e62d88;
-$d-thrird:#083388;
+$d-primary:#3D5AFE;
+$d-secondary:#00B0FF;
+$d-thrird:#00E5FF;
+
+$d-linear-gradient:linear-gradient(to right,$d-primary, $d-secondary, $d-thrird);
 
 $d-primary-100:color.scale($d-primary, $lightness: 20%);
 $d-primary-200:color.scale($d-primary, $lightness: 15%);

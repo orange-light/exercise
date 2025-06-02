@@ -11,3 +11,14 @@ export function changeFrame() {
     });
   });
 }
+
+export function showChangeFrame() {
+  document.querySelector(".p-index-frames").style.display = "block";
+  document.querySelector(".p-index-download").style.display = "block";
+}
+
+
+export function showResult() {
+  console.log("有到這邊？");
+  document.querySelector("#result_ID").style.display = "block";
+}

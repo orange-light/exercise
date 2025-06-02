@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- favicon -->
-  <link rel="icon" type="image/png" href="/assets/images/fla_logo.png" />
+  <link rel="icon" type="image/png" href="./assets/images/fla_logo.png" />
   <!-- seo -->
   <title>Skincare Module測試</title>
   <meta name="description" content="網站描述" />
@@ -24,7 +24,6 @@
   <meta name="twitter:image" content="網站縮圖" />
   <!-- third party CSS -->
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/scss/main.scss" />
   <script>
     // skinCareHD SRC
     (function (d, k) {
@@ -44,6 +43,8 @@
     // VConsole will be exported to `window.VConsole` by default.
     var vConsole = new window.VConsole();
   </script> -->
+  <script type="module" crossorigin src="./assets/js/index.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/css/index.css">
 </head>
 
 <body>
@@ -51,7 +52,7 @@
     <div class="p-index-app" style="background-color: black;">
       <div class="p-index-ymk-wrapper">
         <div class="p-index-ymk-frames">
-          <img src="/assets/images/frames/FrameN.png" alt="框架預覽" id="frame-preview" />
+          <img src="./assets/images/frames/FrameN.png" alt="框架預覽" id="frame-preview" />
         </div>
         <!-- 官方容器 -->
         <div id="YMK-module"></div>
@@ -113,7 +114,7 @@
             </div>
           </div>
           <div class="p-index-photo">
-            <img src="/assets/images/test.png" alt="" />
+            <img src="./assets/images/test.png" alt="" />
           </div>
         </div>
       </div>
@@ -212,7 +213,6 @@
   </section>
   <!-- third party JS -->
   <!-- js -->
-  <script type="module" src="/assets/js/main.js"></script>
 </body>
 
 </html>

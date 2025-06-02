@@ -39,10 +39,109 @@
         width: 100%;
     }
 
+    &-txt {
+        width: 60%;
+
+        >div {
+            background-color: rgba(#00E5FF, 0.1);
+            padding: 10px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .flex {
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p:nth-child(1) {
+            font-size: 2rem;
+        }
+
+        p:nth-child(2) {
+            padding-bottom: 4px;
+        }
+    }
+
+    &-photo {
+        overflow: hidden;
+        background-image: $d-linear-gradient;
+        padding: 10px;
+        border-radius: 500px;
+        width: 40%;
+
+        img {
+            border-radius: 500px;
+            width: 100%;
+        }
+    }
+
+    &-chart {
+        &-chart {
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    }
+
+    &-card {
+        background-color: #fff;
+        border-radius: 25px;
+        padding: 1rem;
+    }
+
     &-result {
         &-items {
             text-align: center;
             width: calc((100%/3) - 1rem);
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                color: inherit;
+                flex: 1 0 auto;
+            }
+
+            &:nth-child(1) {
+                stroke: #3D5AFE;
+                color: #3D5AFE;
+            }
+
+            &:nth-child(2) {
+                stroke: #00B0FF;
+                color: #00B0FF;
+            }
+
+            &:nth-child(3) {
+                stroke: #00E5FF;
+                color: #00E5FF;
+            }
+
+            &:nth-child(4) {
+                stroke: #1DE9B6;
+                color: #1DE9B6;
+            }
+
+            &:nth-child(5) {
+                stroke: #00E676;
+                color: #00E676;
+            }
+
+            &:nth-child(6) {
+                stroke: #76FF03;
+                color: #76FF03;
+            }
         }
 
         &-chart {
@@ -63,17 +162,17 @@
 
         .circle-fg {
             fill: none;
-            stroke: #3b82f6;
             stroke-width: 15;
             stroke-linecap: round;
             stroke-dasharray: 502.6548245743669;
-            stroke-dashoffset: 502.6548245743669;
+            // stroke-dashoffset: 502.6548245743669;
             transition: stroke-dashoffset 0.5s ease;
         }
 
         .label {
+            font-size: 1.5rem;
             position: absolute;
-            top: 50%;
+            top: calc(50% - 2px);
             left: 50%;
             transform: translate(-50%, -50%);
         }
