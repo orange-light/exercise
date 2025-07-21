@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      charset="utf-8"
+      src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"
+    ></script>
+  </head>
+  <body>
+    <h1>LIFF 測試</h1>
+    <script>
+      const liffId = "2007723101-Ar4Ekapd";
+      let friendshipVerifyBoolean = false;
+      async function initLIFF() {
+        try {
+          await liff.init({
+            liffId: liffId,
+          });
+          console.log("LIFF 初始化成功");
+          liff.ready.then(async () => {
+            if (!liff.isLoggedIn()) {
+              liff.login();
+            } else {
+              console.log("登入成功!");
+              // 做一些初始化成功之後的function
+              // 儲存LINE好友布林值
+              friendshipVerifyBoolean = await getLiffFriendship();
+              console.log("好友狀態==", friendshipVerifyBoolean);
+              if (!friendshipVerifyBoolean) {
+                alert("你不是好友或是封鎖了本漲號，請加好友或是解除封鎖");
+                // window.location.href ="https://line.me/R/ti/p/@378jsvop";
+                window.location.href =
+                  "https://access.line.me/oauth2/v2.1/authorize?" +
+                  "response_type=code" +
+                  "&client_id=2007723101" +
+                  "&redirect_uri=https://2024.fla.com.tw/joy_test/liff/index.html" +
+                  "&state=dakljdlakda" +
+                  "&scope=profile" +
+                  "&prompt=consent" +
+                  "&bot_prompt=aggressive";
+
+                return;
+              }
+            }
+          });
+        } catch (error) {}
+      }
+      // 呼叫初始化
+      initLIFF();
+
+      // 取得好友狀態
+      async function getLiffFriendship() {
+        const data = await liff.getFriendship();
+        console.log("liff好友狀態==", data.friendFlag);
+        return data.friendFlag;
+      }
+    </script>
+  </body>
+</html>
