@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ChatGPT 操作器</title>
+  <style>
+    #loading {
+      display: none;
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>輸入訊息給 ChatGPT</h2>
+  <textarea id="message" rows="4" cols="50"></textarea><br>
+  <button onclick="sendMessage()">送出</button>
+
+  <div id="loading">⏳ 正在遠端控制 ChatGPT，請勿移動滑鼠與鍵盤...</div>
+  <div id="reply"></div>
+
+  <script>
+    async function sendMessage() {
+      const message = document.getElementById("message").value;
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("reply").innerText = "";
+
+      const response = await fetch('/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("reply").innerText = data.reply;
+    }
+  </script>
+</body>
+</html>
