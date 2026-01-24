@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>節奏動物遊戲</title>
+    <!-- google fonts icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <!-- 自寫CSS -->
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+
+<body>
+    <main>
+        <!-- 背景音樂 -->
+        <audio id="audio_ID" controls loop src="assets/audios/bgm-03.mp3"></audio>
+        <!-- 隨機產生圖片區 -->
+        <div id="imageArea_ID">
+            <img src="assets/images/ver1/01.png" alt="豬">
+            <img src="assets/images/ver1/02.png" alt="牛">
+            <img src="assets/images/ver1/03.png" alt="狗">
+            <img src="assets/images/ver1/04.png" alt="熊">
+            <img src="assets/images/ver1/05.png" alt="雞">
+            <img src="assets/images/ver1/06.png" alt="鳥">
+            <img src="assets/images/ver1/07.png" alt="馬">
+            <img src="assets/images/ver1/08.png" alt="貓">
+        </div>
+        <!-- 控制區 -->
+        <!-- 版本選擇 -->
+        <div id="version_ID">
+            <label for="versionSelect_ID">版本選擇:</label>
+            <select id="versionSelect_ID">
+                <option value="ver1">版本一</option>
+                <option value="ver2">版本二</option>
+                <option value="ver3">版本三</option>
+            </select>
+        </div>
+        <!-- 難度控制 -->
+        <div id="controlArea_ID">
+            <!-- 暫停 -->
+            <button type="button" id="pause_ID">
+                <span class="material-symbols-outlined">play_circle</span>
+            </button>
+            <!-- 換題 -->
+            <button type="button" id="next_ID">
+                <span class="material-symbols-outlined">
+                    next_plan
+                </span>
+            </button>
+            <!-- 難度 -->
+            <!-- 降低難度 -->
+            <button type="button" id="minus_ID">
+                <span class="material-symbols-outlined">
+                    check_indeterminate_small
+                </span>
+            </button>
+            <!-- 難度顯示 -->
+            <input type="text" id="difficulty_ID" value="難度: 1" readonly>
+            <!-- 增加難度 -->
+            <button type="button" id="plus_ID">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </button>
+        </div>
+    </main>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
