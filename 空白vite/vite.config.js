@@ -13,7 +13,8 @@ export default defineConfig({
   build: {
     outDir: path.join(__dirname, "dist"), //設定打包後的資料夾位置
     emptyOutDir: true,
-    assetsInlineLimit: 0, // 關閉資源內聯ß
+    assetsInlineLimit: 0, // 關閉資源內聯
+    minify: false, // 關閉壓縮
     rollupOptions: {
       input: glob.sync(path.resolve(__dirname, "src", "**/*.html")), //為了能打包子資料夾下的html&其引入的資源
       output: {
@@ -44,22 +45,24 @@ export default defineConfig({
       },
     },
   },
-    plugins: [
-      copy({
-        verbose: true,
-        hook: 'closeBundle',
-        targets: [
-          { src: "src/assets/images/*", dest: "dist/assets/images/" },
-          { src: "src/ajax/*", dest: "dist/ajax" },
-          { src: "src/assets/json/*", dest: "dist/assets/json/" }
-        ],
-      }),
-    ],
+  plugins: [
+    copy({
+      verbose: true,
+      hook: 'closeBundle',
+      targets: [
+        { src: "src/assets/images/*", dest: "dist/assets/images/" },
+        { src: "src/ajax/*", dest: "dist/ajax" },
+        // { src: "src/assets/plugin/*", dest: "dist/assets/plugin/" },
+        // { src: "src/assets/json/*", dest: "dist/assets/json/" }
+      ],
+    }),
+  ],
   server: {
-    open: true,
-    strictPort: false,
+    open: true, // 開啟瀏覽器
+    strictPort: false, // 端口被占用不會報錯
+    host: true, // 可使用ip開啟localhost
     watch: {
-      usePolling: true,
+      usePolling: true, // 開啟文件監聽
     },
   },
 });
