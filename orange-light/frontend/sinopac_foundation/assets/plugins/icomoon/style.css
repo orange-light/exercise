@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?l1ouz1');
+  src:  url('fonts/icomoon.eot?l1ouz1#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?l1ouz1') format('woff2'),
+    url('fonts/icomoon.ttf?l1ouz1') format('truetype'),
+    url('fonts/icomoon.woff?l1ouz1') format('woff'),
+    url('fonts/icomoon.svg?l1ouz1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon_eventTab-magnifier:before {
+  content: "\e907";
+}
+.icon-icon_eventTab-01:before {
+  content: "\e900";
+}
+.icon-icon_eventTab-02:before {
+  content: "\e901";
+}
+.icon-icon_eventTab-03:before {
+  content: "\e902";
+}
+.icon-icon_eventTab-04:before {
+  content: "\e903";
+}
+.icon-icon_eventTab-05:before {
+  content: "\e904";
+}
+.icon-icon_eventTab-06:before {
+  content: "\e905";
+}
+.icon-icon_eventTab-07:before {
+  content: "\e906";
+}
